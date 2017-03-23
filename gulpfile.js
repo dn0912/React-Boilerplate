@@ -2,6 +2,13 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var cleanCSS = require('gulp-clean-css');
 var connect = require('gulp-connect');
+var babel = require("gulp-babel");
+
+gulp.task("babel", function () {
+  return gulp.src("src/app.js")
+    .pipe(babel())
+    .pipe(gulp.dest("dist"));
+});
 
 gulp.task('sass', function () {
     return gulp.src('src/scss/**/*.scss')
@@ -18,4 +25,4 @@ gulp.task('webserver', function() {
 	connect.server();
 });
 
-gulp.task('default', ['watch', 'webserver']);
+gulp.task('default', ['watch', 'webserver', 'babel']);
