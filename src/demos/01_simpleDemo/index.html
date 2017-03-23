@@ -11,28 +11,34 @@
 </head>
 <body>
 
-    <div id="example"></div>
+    <div id="container"></div>
 
     <script type="text/babel">
 
-        var Movie = React.createClass({
+        var Comment = React.createClass({
+            edit: function () {
+                alert('Editing comment');
+            },
+            remove: function () {
+                alert('Removing');
+            },
             render: function () {
-                return (
-                        <div>
-                            <h1>{this.props.title}</h1>
-                            <h2>{this.props.genre}</h2>
-                        </div>
-                );
+               return (
+                       <div className="commentContainer">
+                           <div className="commentText">{this.props.children}</div>
+                           <button onClick={this.edit} className="button-primary">Edit</button>
+                           <button onClick={this.remove} className="button-danger">Remove</button>
+                       </div>
+               );
             }
         });
 
         ReactDOM.render(
-                <div>
-                    <Movie title="Avatar" genre="action" />
-                    <Movie title="Test" genre="Hello" />
-                    <Movie title="Zeug" genre="World" />
-                </div>
-                ,document.getElementById('example'));
+                <div className="board">
+                    <Comment>Hey now</Comment>
+                    <Comment>124</Comment>
+                    <Comment>adfag</Comment>
+                </div>, document.getElementById('container'));
 
     </script>
 
