@@ -17,11 +17,16 @@
 
         var Bacon = React.createClass({
             render: function () {
-                return (<h3>This is a simple component!</h3>);
+                return (
+                    <div>
+                        <h3>Bacon component!</h3>
+                        <p>I am some sample text</p>
+                    </div>
+                );
             }
         });
 
-        ReactDOM.render(<Bacon />, document.getElementById('example'));
+        ReactDOM.render(<div><Bacon /><Bacon /><Bacon /></div>, document.getElementById('example'));
 
     </script>
 
