@@ -7,14 +7,14 @@
     <link rel="stylesheet" type="text/css" href="../../css/main.css">
     <script src="../../js/react.min.js"></script>
     <script src="../../js/react-dom.min.js"></script>
-    <script src="../../js/babel.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
 
-    <div id="example" class="board">HAAAALO</div>
+    <div id="example">HAAAALO</div>
 
     <script type="text/babel">
-        ReactDOM.render(<h1>Duc</h1>, document.getElementByID('example'));
+        ReactDOM.render(<h1>Duc</h1>, document.getElementById('example'));
     </script>
 
 </body>
