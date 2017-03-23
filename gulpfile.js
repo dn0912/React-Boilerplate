@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var cleanCSS = require('gulp-clean-css');
+var connect = require('gulp-connect');
 
 gulp.task('sass', function () {
     return gulp.src('src/scss/**/*.scss')
@@ -9,6 +10,12 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('src/css'))
 });
 
-gulp.task('default', function (){
+gulp.task('watch', function (){
     gulp.watch('src/scss/**/*.scss', ['sass'], ['minify-css']);
 });
+
+gulp.task('webserver', function() {
+	connect.server();
+});
+
+gulp.task('default', ['watch', 'webserver']);
